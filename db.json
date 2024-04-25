@@ -1,0 +1,124 @@
+{
+    "tickets": [
+        {
+            "id": 1,
+            "from": "SVO",
+            "to": "ANYWHERE",
+            "company": "Sanctioned airlines",
+            "price": 100,
+            "currency": "RUB",
+            "startTime": "2021-01-01T00:00:00Z",
+            "endTime": "2021-01-01T07:00:00+00:00",
+            "date": "2021-01-01T00:00:00Z",
+            "connectionAmount": 1
+        },
+        {
+            "id": 2,
+            "from": "SVO",
+            "to": "ANYWHERE",
+            "company": "Unsanctioned airlines",
+            "price": 11000,
+            "currency": "RUB",
+            "startTime": "2021-01-01T00:00:00Z",
+            "endTime": "2021-01-01T08:00:00+00:00",
+            "date": "2021-01-01T00:00:00Z",
+            "connectionAmount": 0
+        },
+        {
+            "id": 3,
+            "from": "SVO",
+            "to": "ANYWHERE",
+            "company": "WillBreak airlines",
+            "price": 120000,
+            "currency": "RUB",
+            "startTime": "2021-01-01T00:00:00Z",
+            "endTime": "2021-01-01T05:00:00+00:00",
+            "date": "2021-01-01T00:00:00Z",
+            "connectionAmount": 1
+        },
+        {
+            "id": 4,
+            "from": "SVO",
+            "to": "ANYWHERE",
+            "company": "Sanctioned airlines",
+            "price": 3000,
+            "currency": "RUB",
+            "startTime": "2021-01-01T00:00:00Z",
+            "endTime": "2021-01-01T03:00:00+00:00",
+            "date": "2021-01-01T00:00:00Z",
+            "connectionAmount": 3
+        },
+        {
+            "id": 5,
+            "from": "SVO",
+            "to": "ANYWHERE",
+            "company": "WillBreak airlines",
+            "price": 5000,
+            "currency": "RUB",
+            "startTime": "2021-01-01T00:00:00Z",
+            "endTime": "2021-01-01T04:00:00+00:00",
+            "date": "2021-01-01T00:00:00Z",
+            "connectionAmount": 1
+        },
+        {
+            "id": 6,
+            "from": "SVO",
+            "to": "ANYWHERE",
+            "company": "Sanctioned airlines",
+            "price": 111000,
+            "currency": "RUB",
+            "startTime": "2021-01-01T00:00:00Z",
+            "endTime": "2021-01-01T08:00:00+00:00",
+            "date": "2021-01-01T00:00:00Z",
+            "connectionAmount": 2
+        },
+        {
+            "id": 7,
+            "from": "SVO",
+            "to": "ANYWHERE",
+            "company": "Sanctioned airlines",
+            "price": 80000,
+            "currency": "RUB",
+            "startTime": "2021-01-01T00:00:00Z",
+            "endTime": "2021-01-01T06:00:00+00:00",
+            "date": "2021-01-01T00:00:00Z",
+            "connectionAmount": 0
+        },
+        {
+            "id": 8,
+            "from": "SVO",
+            "to": "ANYWHERE",
+            "company": "Sanctioned airlines",
+            "price": 2000,
+            "currency": "RUB",
+            "startTime": "2021-01-01T00:00:00Z",
+            "endTime": "2021-01-01T07:00:00+00:00",
+            "date": "2021-01-01T00:00:00Z",
+            "connectionAmount": 2
+        },
+        {
+            "id": 9,
+            "from": "SVO",
+            "to": "ANYWHERE",
+            "company": "WillBreak airlines",
+            "price": 1300,
+            "currency": "RUB",
+            "startTime": "2021-01-01T00:00:00Z",
+            "endTime": "2021-01-01T05:00:00+00:00",
+            "date": "2021-01-01T00:00:00Z",
+            "connectionAmount": 3
+        },
+        {
+            "id": 10,
+            "from": "SVO",
+            "to": "ANYWHERE",
+            "company": "Unsanctioned airlines",
+            "price": 15000,
+            "currency": "RUB",
+            "startTime": "2021-01-01T00:00:00Z",
+            "endTime": "2021-01-01T08:00:00+00:00",
+            "date": "2021-01-01T00:00:00Z",
+            "connectionAmount": 2
+        }
+    ]
+}

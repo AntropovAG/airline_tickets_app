@@ -1,0 +1,22 @@
+.container {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 34px;
+}
+
+.img {
+    width: 100px;
+    height: 80.5px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.title {
+    color: rgb(78, 20, 140);
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 29px;
+}
