@@ -20,14 +20,14 @@ export const connectionList = [
 export const airlinesList = [
     {
         "name": "Sanctioned Airlines",
-        "value": "SU"
+        "value": "SAA"
     },
     {
         "name": "Unsanctioned Airlines",
-        "value": "UN"
+        "value": "UNA"
     },
     {
         "name": "WillBreak airlines",
-        "value": "WB"
+        "value": "WBA"
     }
 ]

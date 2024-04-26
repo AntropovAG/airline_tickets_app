@@ -3,22 +3,29 @@ import Item from '../Item/Item';
 import {fetchTickets} from '../../redux/ticketsSlice.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import {ticketsAdapter} from '../../redux/ticketsSlice.js';
-import {sortByConnections} from '../../redux/ticketsSlice.js';
+import {sortByPrice, sortTicketByDuration} from '../../redux/ticketsSlice.js';
+// import {ticketsAdapter} from '../../redux/ticketsSlice.js';
+// import {sortByConnections} from '../../redux/ticketsSlice.js';
 
-const selectTicketEntities = ticketsAdapter.getSelectors((state) => state.tickets);
+// const selectTicketEntities = ticketsAdapter.getSelectors((state) => state.tickets);
 
 export default function ItemsList() {
     const dispatch = useDispatch();
-    const tickets = useSelector(selectTicketEntities.selectAll);
+    // const tickets = useSelector(selectTicketEntities.selectAll);
+    const tickets = useSelector((state) => state.tickets.tickets);
+    const filteredTickets = useSelector((state) => state.tickets.filteredTickets);
+
+    // const handleClick = () => {
+    //     dispatch(sortByConnections());
+    // }
 
     const handleClick = () => {
-        dispatch(sortByConnections());
+        dispatch(sortTicketByDuration());
     }
 
     useEffect(() => {
-        console.log(tickets)
-    }, [tickets])
+        console.log(filteredTickets)
+    }, [filteredTickets])
 
     useEffect(() => {
         dispatch(fetchTickets())
