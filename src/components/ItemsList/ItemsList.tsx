@@ -12,7 +12,7 @@ import {sortByPrice, sortTicketByDuration} from '../../redux/ticketsSlice.js';
 export default function ItemsList() {
     const dispatch = useDispatch();
     // const tickets = useSelector(selectTicketEntities.selectAll);
-    const tickets = useSelector((state) => state.tickets.tickets);
+
     const filteredTickets = useSelector((state) => state.tickets.filteredTickets);
 
     // const handleClick = () => {
@@ -34,7 +34,7 @@ export default function ItemsList() {
     return (
         <div className={styles.container}>
             <button onClick={handleClick}></button>
-            {tickets!==undefined && tickets.length>0?(tickets.map((ticket) => {
+            {filteredTickets!==undefined && filteredTickets.length>0?(filteredTickets.map((ticket) => {
                 return <Item key={ticket.id} ticket={ticket} />
             })):"Не найдено билетов"}
         </div>

@@ -17,4 +17,8 @@ function sortByDuration(tickets) {
     });
 }
 
-export { formatDuration, sortByDuration };
+function formatPrice(price) {
+    return new Intl.NumberFormat("ru-RU").format(price);
+}
+
+export { formatDuration, sortByDuration, formatPrice };

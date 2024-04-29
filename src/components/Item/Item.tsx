@@ -1,12 +1,12 @@
 import styles from './item.module.css';
-import {formatDuration} from '../../../utils/supportFunctions.js';
+import {formatDuration, formatPrice} from '../../../utils/supportFunctions.js';
 
 export default function Item({ticket}) {
     const {company, connectionAmount, from, to, startTime, endTime, price} = ticket;
     return (
         <div className={styles.container}>
             <div className={styles.priceContainer}>
-                <p className={styles.price}>{price} P</p>
+                <p className={styles.price}>{formatPrice(price)} P</p>
                 <img className={styles.img} src="./public/sanctioned_logo.png" alt={company} />
             </div>
             <div className={styles.infoContainer}>

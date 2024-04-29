@@ -30,27 +30,27 @@ const ticketsSlice = createSlice({
     // initialState: ticketsAdapter.getInitialState(),
     reducers: {
         sortByPrice(state) {
-            const sortedByPrice = state.tickets.sort((a, b) => a.price - b.price);
-            state.tickets = sortedByPrice;
+            const sortedByPrice = state.filteredTickets.sort((a, b) => a.price - b.price);
+            state.filteredTickets = sortedByPrice;
         },
         sortTicketByDuration(state) {
-            const sortedByDuration = sortByDuration(state.tickets);
-            state.tickets = sortedByDuration;
+            const sortedByDuration = sortByDuration(state.filteredTickets);
+            state.filteredTickets = sortedByDuration;
         },
-        filterByTransfer(state, action) {
-            const {value, value2} = action.payload;
-            console.log(value, value2);
-            if (value.length === 0 && value2.length === 0) {
+        filterTickets(state, action) {
+            const {connectionsFilter, companyFilter} = action.payload;
+            console.log(connectionsFilter, companyFilter);
+            if (connectionsFilter.length === 0 && companyFilter.length === 0) {
                 state.filteredTickets = state.tickets;
                 return;
             }
             const filteredTickets = state.tickets.filter(function(ticket) {
-                if (value.length !== 0) {
-                    if (!value.includes(ticket.connectionAmount))
+                if (connectionsFilter.length !== 0) {
+                    if (!connectionsFilter.includes(ticket.connectionAmount))
                         return false;
                 }
-                if (value2.length !== 0) {
-                    if (!value2.includes(ticket.company))
+                if (companyFilter.length !== 0) {
+                    if (!companyFilter.includes(ticket.company))
                         return false;
                 }
                 return true;
@@ -88,12 +88,13 @@ const ticketsSlice = createSlice({
         builder.addCase(fetchTickets.fulfilled, (state, action) => {
             // ticketsAdapter.setAll(state, action.payload);
             state.tickets = action.payload;
+            state.filteredTickets = action.payload;
         });
     }
 });
 
 
-export const {sortByPrice, sortTicketByDuration, filterByTransfer} = ticketsSlice.actions;
+export const {sortByPrice, sortTicketByDuration, filterTickets} = ticketsSlice.actions;
 // export const {sortTicketsByDuration, sortByConnections} = ticketsSlice.actions;
 
 export default ticketsSlice.reducer;
