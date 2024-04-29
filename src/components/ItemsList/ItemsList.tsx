@@ -28,7 +28,7 @@ export default function ItemsList() {
     }, [filteredTickets])
 
     useEffect(() => {
-        dispatch(fetchTickets())
+        dispatch(fetchTickets()).finally(() => {dispatch(sortByPrice());});
     }, [dispatch])
 
     return (
