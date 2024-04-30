@@ -26,9 +26,28 @@ const ticketsSlice = createSlice({
     initialState: {
         tickets: [],
         filteredTickets: [],
+        currentSorting: "price",
     },
     // initialState: ticketsAdapter.getInitialState(),
     reducers: {
+        setSortingType(state, action) {
+            state.currentSorting = action.payload;
+        },
+        sortTickets(state) {
+            if(state.currentSorting === 'price') {
+                const sortedByPrice = state.filteredTickets.sort((a, b) => a.price - b.price);
+                state.filteredTickets = sortedByPrice;
+            }
+            if(state.currentSorting === 'duration') {
+                const sortedByDuration = sortByDuration(state.filteredTickets);
+                state.filteredTickets = sortedByDuration;
+            }
+            if (state.currentSorting === 'optimal') {
+                const sortedByPrice = state.filteredTickets.sort((a, b) => a.price - b.price);
+                const sortedByDuration = sortByDuration(sortedByPrice);
+                state.filteredTickets = sortedByDuration;
+            }
+        },
         sortByPrice(state) {
             const sortedByPrice = state.filteredTickets.sort((a, b) => a.price - b.price);
             state.filteredTickets = sortedByPrice;
@@ -39,7 +58,6 @@ const ticketsSlice = createSlice({
         },
         filterTickets(state, action) {
             const {connectionsFilter, companyFilter} = action.payload;
-            console.log(connectionsFilter, companyFilter);
             if (connectionsFilter.length === 0 && companyFilter.length === 0) {
                 state.filteredTickets = state.tickets;
                 return;
@@ -56,7 +74,6 @@ const ticketsSlice = createSlice({
                 return true;
             }
             );
-            console.log(filteredTickets);
             state.filteredTickets = filteredTickets;
         }
         // filterByTransfer(state, action) {
@@ -94,7 +111,7 @@ const ticketsSlice = createSlice({
 });
 
 
-export const {sortByPrice, sortTicketByDuration, filterTickets} = ticketsSlice.actions;
+export const {sortByPrice, sortTicketByDuration, filterTickets, sortTickets, setSortingType} = ticketsSlice.actions;
 // export const {sortTicketsByDuration, sortByConnections} = ticketsSlice.actions;
 
 export default ticketsSlice.reducer;

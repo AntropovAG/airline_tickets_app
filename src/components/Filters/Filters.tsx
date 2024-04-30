@@ -4,7 +4,7 @@ import InputSquare from '../InputSquare/InputSquare';
 import InputCircle from '../InputCircle/InputCircle';
 import { connectionList, airlinesList } from '../../../utils/constants';
 import { useState, ChangeEvent, useEffect } from 'react';
-import {filterTickets} from '../../redux/ticketsSlice.js';
+import {filterTickets, sortTickets} from '../../redux/ticketsSlice.js';
 import { useDispatch } from 'react-redux';
 
 
@@ -24,6 +24,7 @@ const dispatch = useDispatch();
 
 useEffect(() => {
     dispatch(filterTickets(inputValue));
+    dispatch(sortTickets());
 }, [inputValue]);
 
 const handleConnectionsFormChange = (e: ChangeEvent<HTMLInputElement>) => {
