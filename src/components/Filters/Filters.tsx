@@ -27,8 +27,8 @@ useEffect(() => {
     dispatch(sortTickets());
 }, [inputValue]);
 
-const handleConnectionsFormChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const target = e.target as HTMLInputElement;
+const handleConnectionsFormChange = (e: ChangeEvent<HTMLFormElement>) => {
+    const target = e.target as HTMLFormElement;
     if (target.type == 'checkbox') {
         if (target.checked) {
             setInputValue(prevState => ({
@@ -44,8 +44,8 @@ const handleConnectionsFormChange = (e: ChangeEvent<HTMLInputElement>) => {
     }
 };
 
-const handleCompanyFormChange = (e: ChangeEvent<HTMLInputElement>) => {
-  const target = e.target as HTMLInputElement;
+const handleCompanyFormChange = (e: ChangeEvent<HTMLFormElement>) => {
+  const target = e.target as HTMLFormElement;
   if (target.type == 'checkbox') {
       if (target.checked) {
           setInputValue(prevState => ({

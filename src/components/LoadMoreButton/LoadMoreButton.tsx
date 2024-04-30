@@ -1,8 +1,12 @@
 import styles from './loadMoreButton.module.css';
 
-export default function LoadMoreButton() {
+interface LoadMoreButtonProps {
+    handleClick: () => void;
+}
+
+export default function LoadMoreButton({handleClick}) {
     return (
-        <button className={styles.button}>
+        <button className={styles.button} onClick={handleClick}>
             Загрузить ещё билеты
         </button>
     )
