@@ -20,3 +20,26 @@
     font-weight: 700;
     line-height: 29px;
 }
+
+
+@media screen and (max-width: 1080px) {
+    .container {
+        justify-content: center;
+    }
+
+    .img {
+        width: 57px;
+        height: 46px;
+    }
+    
+    .title {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 745px) {
+    .img {
+        width: 68px;
+        height: 54px;
+    }
+}

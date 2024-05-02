@@ -71,3 +71,10 @@
         background-image: url('/public/white_check_mark.png'); 
     }
 }
+
+
+@media screen and (max-width: 745px) {
+    .label {
+        font-size: 12px;
+    }
+}

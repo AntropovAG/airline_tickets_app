@@ -67,7 +67,7 @@ const ticketsSlice = createSlice({
             if (companyFilter.length !== 0) {
                 state.displayedFilters.push(`Авиакомпания: ${companyFilter.join(', ')}`);
             } else {
-                state.displayedFilters.push("Любая авиакомпания");
+                state.displayedFilters.push("любая авиакомпания");
             }
         },
         // sortByPrice(state) {

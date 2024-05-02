@@ -70,3 +70,9 @@
         background-color: rgb(247, 249, 247);
     }
 }
+
+@media screen and (max-width: 745px) {
+    .label {
+        font-size: 12px;
+    }
+}

@@ -3,7 +3,7 @@
         {
             "id": 1,
             "from": "SVO",
-            "to": "ANYWHERE",
+            "to": "ANW",
             "company": "SAA",
             "price": 100,
             "currency": "RUB",
@@ -15,7 +15,7 @@
         {
             "id": 2,
             "from": "SVO",
-            "to": "ANYWHERE",
+            "to": "ANW",
             "company": "UNA",
             "price": 11000,
             "currency": "RUB",
@@ -27,7 +27,7 @@
         {
             "id": 3,
             "from": "SVO",
-            "to": "ANYWHERE",
+            "to": "ANW",
             "company": "WBA",
             "price": 120000,
             "currency": "RUB",
@@ -39,7 +39,7 @@
         {
             "id": 4,
             "from": "SVO",
-            "to": "ANYWHERE",
+            "to": "ANW",
             "company": "SAA",
             "price": 3000,
             "currency": "RUB",
@@ -51,7 +51,7 @@
         {
             "id": 5,
             "from": "SVO",
-            "to": "ANYWHERE",
+            "to": "ANW",
             "company": "WBA",
             "price": 5000,
             "currency": "RUB",
@@ -63,7 +63,7 @@
         {
             "id": 6,
             "from": "SVO",
-            "to": "ANYWHERE",
+            "to": "ANW",
             "company": "SAA",
             "price": 111000,
             "currency": "RUB",
@@ -75,7 +75,7 @@
         {
             "id": 7,
             "from": "SVO",
-            "to": "ANYWHERE",
+            "to": "ANW",
             "company": "SAA",
             "price": 80000,
             "currency": "RUB",
@@ -87,7 +87,7 @@
         {
             "id": 8,
             "from": "SVO",
-            "to": "ANYWHERE",
+            "to": "ANW",
             "company": "SAA",
             "price": 2000,
             "currency": "RUB",
@@ -99,7 +99,7 @@
         {
             "id": 9,
             "from": "SVO",
-            "to": "ANYWHERE",
+            "to": "ANW",
             "company": "WBA",
             "price": 1300,
             "currency": "RUB",
@@ -111,7 +111,7 @@
         {
             "id": 10,
             "from": "SVO",
-            "to": "ANYWHERE",
+            "to": "ANW",
             "company": "UNA",
             "price": 15000,
             "currency": "RUB",
@@ -123,7 +123,7 @@
         {
             "id": 11,
             "from": "SVO",
-            "to": "ANYWHERE",
+            "to": "ANW",
             "company": "UNA",
             "price": 2000,
             "currency": "RUB",

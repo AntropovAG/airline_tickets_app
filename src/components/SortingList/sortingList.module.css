@@ -32,3 +32,16 @@
     background-color: rgb(78, 20, 140);
     color: rgb(247, 249, 247);
 }
+
+@media screen and (max-width: 745px) {
+    .container {
+        height: 42px;
+    }
+    
+    .button {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 15px;
+    }
+
+}

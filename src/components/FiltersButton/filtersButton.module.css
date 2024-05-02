@@ -49,3 +49,19 @@
         display: flex;
     }
 }
+
+@media screen and (max-width: 745px) {
+    .button {
+        height: 38px;
+        padding: 0 17px;
+    }
+    
+    .options {
+        font-size: 12px;
+        line-height: 15px;
+    }
+    
+    .text {
+        display: none;
+    }
+}
