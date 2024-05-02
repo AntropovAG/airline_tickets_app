@@ -1,11 +1,16 @@
 import styles from './filtersButton.module.css';
 import { useSelector } from 'react-redux';
 
-export default function FiltersButton({handleClick, openFilters}) {
+interface FiltersButtonProps {
+    handleClick: () => void;
+    openFilters: boolean;
+}
+
+export default function FiltersButton({ handleClick, openFilters }: FiltersButtonProps) {
     const displayedFilters = useSelector((state) => state.tickets.displayedFilters);
 
     return (
-        <button className={`${styles.button} ${openFilters? styles.buttonOpen : ''}`} onClick={handleClick}>
+        <button className={`${styles.button} ${openFilters ? styles.buttonOpen : ''}`} onClick={handleClick}>
             <p className={styles.options}>{displayedFilters.join(", ")}</p>
             <div className={styles.wrapper}>
                 <p className={styles.text}>Открыть настройки</p>

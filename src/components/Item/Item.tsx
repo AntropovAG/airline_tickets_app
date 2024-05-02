@@ -1,7 +1,11 @@
 import styles from './item.module.css';
 import {formatDuration, formatPrice, formatConnectionsInfo, getAirlineImage} from '../../../utils/supportFunctions.js';
+import {Ticket} from '../../../utils/interfaces.js'
 
-export default function Item({ticket}) {
+interface ItemProps {
+    ticket: Ticket;
+}
+export default function Item({ticket}: ItemProps) {
     const {company, connectionAmount, from, to, startTime, endTime, price} = ticket;
 
 

@@ -38,7 +38,7 @@
     display: none;
 }
 
-.label input:checked ~ .span:after {
+.label input:checked~.span:after {
     display: block;
 }
 
@@ -49,8 +49,8 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    height: 15px; 
-    width: 15px; 
+    height: 15px;
+    width: 15px;
     border-radius: 50%;
     background-color: rgb(78, 20, 140);
 }

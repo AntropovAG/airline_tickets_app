@@ -1,19 +1,22 @@
 import styles from './itemsList.module.css';
 import Item from '../Item/Item';
 import {fetchTickets} from '../../redux/ticketsSlice.js';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { sortTickets} from '../../redux/ticketsSlice.js';
+import { Ticket } from '../../utils/interfaces.ts';
 // import {ticketsAdapter} from '../../redux/ticketsSlice.js';
 // import {sortByConnections} from '../../redux/ticketsSlice.js';
 
 // const selectTicketEntities = ticketsAdapter.getSelectors((state) => state.tickets);
 
-export default function ItemsList({displayedTickets}) {
+interface ItemsListProps {
+    displayedTickets: Ticket[];
+}
+
+export default function ItemsList({displayedTickets}: ItemsListProps) {
     const dispatch = useDispatch();
     // const tickets = useSelector(selectTicketEntities.selectAll);
-
-    const filteredTickets = useSelector((state) => state.tickets.filteredTickets);
 
     // const handleClick = () => {
     //     dispatch(sortByConnections());

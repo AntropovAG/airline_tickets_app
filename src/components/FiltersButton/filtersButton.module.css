@@ -20,7 +20,7 @@
 }
 
 .options {
-    color: rgb(247, 249, 247); 
+    color: rgb(247, 249, 247);
     font-size: 16px;
     font-weight: 500;
     line-height: 19px;
@@ -55,12 +55,12 @@
         height: 38px;
         padding: 0 17px;
     }
-    
+
     .options {
         font-size: 12px;
         line-height: 15px;
     }
-    
+
     .text {
         display: none;
     }

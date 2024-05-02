@@ -55,14 +55,14 @@ const ticketsSlice = createSlice({
         setDisplayedFilters(state, action) {
             const { connectionsFilter, companyFilter } = action.payload;
             state.displayedFilters = []; // Clear the existing filters before setting new ones
-        
+
             // Add connection filter info or default if empty
             if (connectionsFilter.length !== 0) {
                 state.displayedFilters.push(`Кол-во пересадок: ${connectionsFilter.join(', ')}`);
             } else {
                 state.displayedFilters.push("любое кол-во пересадок");
             }
-        
+
             // Add company filter info or default if empty
             if (companyFilter.length !== 0) {
                 state.displayedFilters.push(`Авиакомпания: ${companyFilter.join(', ')}`);
@@ -133,7 +133,7 @@ const ticketsSlice = createSlice({
 });
 
 
-export const { sortByPrice, sortTicketByDuration, filterTickets, sortTickets, setSortingType, setDisplayedFilters } = ticketsSlice.actions;
+export const { filterTickets, sortTickets, setSortingType, setDisplayedFilters } = ticketsSlice.actions;
 // export const {sortTicketsByDuration, sortByConnections} = ticketsSlice.actions;
 
 export default ticketsSlice.reducer;
