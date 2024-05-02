@@ -11,4 +11,4 @@ interface Ticket {
     connectionAmount: number;
 }
 
-export { Ticket };
+export type { Ticket };

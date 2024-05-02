@@ -4,11 +4,11 @@ import SortingList from '../SortingList/SortingList'
 import ItemsList from '../ItemsList/ItemsList'
 import FiltersButton from '../FiltersButton/FiltersButton'
 import LoadMoreButton from '../LoadMoreButton/LoadMoreButton'
-import { useSelector } from 'react-redux'
+import { useAppSelector } from '../../../utils/hooks'
 import { useState, useEffect } from 'react'
 
 export default function Layout() {
-    const filteredTickets = useSelector((state) => state.tickets.filteredTickets);
+    const filteredTickets = useAppSelector((state) => state.tickets.filteredTickets);
     const [displayCount, setDisplayCount] = useState(3);
     const isWideScreen = () => window.innerWidth > 1080;
     const [openFilters, setOpenFilters] = useState(isWideScreen);

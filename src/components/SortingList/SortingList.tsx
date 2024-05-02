@@ -1,19 +1,24 @@
 import styles from './sortingList.module.css';
-import { setSortingType, sortTickets } from '../../redux/ticketsSlice';
+import { setSortingType, sortTickets } from '../../redux/ticketsSlice.ts';
 import { useDispatch } from 'react-redux';
 
 export default function SortingList() {
     const dispatch = useDispatch();
 
     const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-        const target = e.target as HTMLButtonElement;
+        const target = e.currentTarget as HTMLButtonElement;
+        const sortType = target.dataset.sort;
         const buttons = document.querySelectorAll("#sortButton");
         buttons.forEach((button) => {
             button.classList.remove(styles.buttonActive);
         });
         target.classList.add(styles.buttonActive);
-        dispatch(setSortingType(target.dataset.sort));
-        dispatch(sortTickets());
+        if (sortType && ['price', 'duration', 'optimal'].includes(sortType)) {
+            dispatch(setSortingType(sortType as 'price' | 'duration' | 'optimal'));
+            dispatch(sortTickets());
+        } else {
+            console.error('Invalid sort type:', sortType);
+        }
     }
 
     return (

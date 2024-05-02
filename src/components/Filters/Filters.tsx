@@ -4,8 +4,8 @@ import InputSquare from '../InputSquare/InputSquare';
 import InputCircle from '../InputCircle/InputCircle';
 import { connectionList, airlinesList } from '../../../utils/constants';
 import { useState, ChangeEvent, useEffect } from 'react';
-import { filterTickets, sortTickets, setDisplayedFilters } from '../../redux/ticketsSlice.js';
-import { useDispatch } from 'react-redux';
+import { filterTickets, sortTickets, setDisplayedFilters } from '../../redux/ticketsSlice.ts';
+import { useAppDispatch } from '../../../utils/hooks.ts';
 
 interface InputValue {
   connectionsFilter: number[];
@@ -18,7 +18,7 @@ interface FiltersProps {
 
 export default function Filters({ setDisplayCount }: FiltersProps) {
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [inputValue, setInputValue] = useState<InputValue>({
     "connectionsFilter": [],

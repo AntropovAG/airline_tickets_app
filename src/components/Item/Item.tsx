@@ -1,6 +1,6 @@
 import styles from './item.module.css';
 import {formatDuration, formatPrice, formatConnectionsInfo, getAirlineImage} from '../../../utils/supportFunctions.js';
-import {Ticket} from '../../../utils/interfaces.js'
+import {Ticket} from '../../../utils/interfaces.ts'
 
 interface ItemProps {
     ticket: Ticket;

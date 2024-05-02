@@ -1,5 +1,5 @@
 import styles from './filtersButton.module.css';
-import { useSelector } from 'react-redux';
+import { useAppSelector } from '../../../utils/hooks.ts';
 
 interface FiltersButtonProps {
     handleClick: () => void;
@@ -7,7 +7,7 @@ interface FiltersButtonProps {
 }
 
 export default function FiltersButton({ handleClick, openFilters }: FiltersButtonProps) {
-    const displayedFilters = useSelector((state) => state.tickets.displayedFilters);
+    const displayedFilters = useAppSelector((state) => state.tickets.displayedFilters);
 
     return (
         <button className={`${styles.button} ${openFilters ? styles.buttonOpen : ''}`} onClick={handleClick}>
