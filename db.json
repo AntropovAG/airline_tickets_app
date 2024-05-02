@@ -119,6 +119,18 @@
             "endTime": "2021-01-01T08:00:00+00:00",
             "date": "2021-01-01T00:00:00Z",
             "connectionAmount": 2
+        },  
+        {
+            "id": 11,
+            "from": "SVO",
+            "to": "ANYWHERE",
+            "company": "UNA",
+            "price": 2000,
+            "currency": "RUB",
+            "startTime": "2021-01-01T00:00:00Z",
+            "endTime": "2021-01-01T03:00:00+00:00",
+            "date": "2021-01-01T00:00:00Z",
+            "connectionAmount": 2
         }
     ]
 }

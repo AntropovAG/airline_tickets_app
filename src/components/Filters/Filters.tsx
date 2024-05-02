@@ -4,7 +4,7 @@ import InputSquare from '../InputSquare/InputSquare';
 import InputCircle from '../InputCircle/InputCircle';
 import { connectionList, airlinesList } from '../../../utils/constants';
 import { useState, ChangeEvent, useEffect } from 'react';
-import {filterTickets, sortTickets} from '../../redux/ticketsSlice.js';
+import {filterTickets, sortTickets, setDisplayedFilters } from '../../redux/ticketsSlice.js';
 import { useDispatch } from 'react-redux';
 
 
@@ -13,7 +13,7 @@ interface InputValue {
   companyFilter: string[];
 }
 
-export default function Filters() {
+export default function Filters({setDisplayCount}) {
 
 const dispatch = useDispatch();
 
@@ -24,6 +24,7 @@ const dispatch = useDispatch();
 
 useEffect(() => {
     dispatch(filterTickets(inputValue));
+    dispatch(setDisplayedFilters(inputValue));
     dispatch(sortTickets());
 }, [inputValue]);
 
@@ -42,6 +43,7 @@ const handleConnectionsFormChange = (e: ChangeEvent<HTMLFormElement>) => {
             }));     
         }
     }
+    setDisplayCount(3);
 };
 
 const handleCompanyFormChange = (e: ChangeEvent<HTMLFormElement>) => {
@@ -59,6 +61,7 @@ const handleCompanyFormChange = (e: ChangeEvent<HTMLFormElement>) => {
         }));    
       }
   }
+  setDisplayCount(3);
 };
 
 

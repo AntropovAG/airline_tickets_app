@@ -54,3 +54,19 @@
     border-radius: 50%;
     background-color: rgb(78, 20, 140);
 }
+
+@media screen and (max-width: 1080px) {
+    .label {
+        color: rgb(247, 249, 247);
+        padding-left: 40px;
+        margin-left: 0;
+    }
+
+    .span {
+        border: 1px solid rgb(247, 249, 247);
+    }
+
+    .label .span:after {
+        background-color: rgb(247, 249, 247);
+    }
+}

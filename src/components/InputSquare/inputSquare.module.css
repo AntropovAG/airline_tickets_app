@@ -55,3 +55,19 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+@media screen and (max-width: 1080px) {
+    .label {
+        color: rgb(247, 249, 247);
+        padding-left: 40px;
+        margin-left: 0;
+    }
+
+    .span {
+        border: 1px solid rgb(247, 249, 247);
+    }
+
+    .label .span:after {
+        background-image: url('/public/white_check_mark.png'); 
+    }
+}

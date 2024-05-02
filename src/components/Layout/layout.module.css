@@ -1,17 +1,49 @@
 .container {
-    display: flex;
-    margin-top: 20px;
+    display: grid;
+    grid-template-areas: 
+        "filtersMenu sortMenu"
+        "filtersMenu displayList";
     justify-content: space-between;
+    margin: 0 auto;
 }
 
 .filtersMenu {
+    grid-area: filtersMenu;
     display: flex;
-    gap: 47px;
     width: 272px;
 }
 
-.displayContainer {
-    display: flex;
-    flex-direction: column;
+.sortingList {
+    grid-area: sortMenu;
     width: 727px;
+}
+
+.itemsList {
+    grid-area: displayList;
+    width: 727px;
+}
+
+.filtersVisible {
+    visibility: visible;
+    height: auto;
+}
+
+.filtersHidden {
+    visibility: hidden;
+    height: 0;
+}
+
+@media screen and (max-width: 1080px) {
+    .container {
+        display: grid;
+        grid-template-areas: 
+            "sortMenu"
+            "filtersMenu"
+            "displayList";
+    }
+    .filtersMenu {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
 }

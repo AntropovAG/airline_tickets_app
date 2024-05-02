@@ -7,8 +7,8 @@ import { sortByDuration } from "../../utils/supportFunctions";
 // });
 
 export const fetchTickets = createAsyncThunk(
-    "tickets/fetchTickets", 
-    async (_, {rejectWithValue}) => {
+    "tickets/fetchTickets",
+    async (_, { rejectWithValue }) => {
         try {
             const response = await fetch("http://localhost:3000/tickets");
             if (!response.ok) {
@@ -27,6 +27,7 @@ const ticketsSlice = createSlice({
         tickets: [],
         filteredTickets: [],
         currentSorting: "price",
+        displayedFilters: [],
     },
     // initialState: ticketsAdapter.getInitialState(),
     reducers: {
@@ -34,35 +35,56 @@ const ticketsSlice = createSlice({
             state.currentSorting = action.payload;
         },
         sortTickets(state) {
-            if(state.currentSorting === 'price') {
+            if (state.currentSorting === 'price') {
                 const sortedByPrice = state.filteredTickets.sort((a, b) => a.price - b.price);
                 state.filteredTickets = sortedByPrice;
             }
-            if(state.currentSorting === 'duration') {
+            if (state.currentSorting === 'duration') {
                 const sortedByDuration = sortByDuration(state.filteredTickets);
                 state.filteredTickets = sortedByDuration;
             }
             if (state.currentSorting === 'optimal') {
-                const sortedByPrice = state.filteredTickets.sort((a, b) => a.price - b.price);
-                const sortedByDuration = sortByDuration(sortedByPrice);
-                state.filteredTickets = sortedByDuration;
+                state.filteredTickets = state.filteredTickets.sort((a, b) => {
+                    if (a.price !== b.price) {
+                        return a.price - b.price;
+                    }
+                    return a.duration - b.duration;
+                });
             }
         },
-        sortByPrice(state) {
-            const sortedByPrice = state.filteredTickets.sort((a, b) => a.price - b.price);
-            state.filteredTickets = sortedByPrice;
+        setDisplayedFilters(state, action) {
+            const { connectionsFilter, companyFilter } = action.payload;
+            state.displayedFilters = []; // Clear the existing filters before setting new ones
+        
+            // Add connection filter info or default if empty
+            if (connectionsFilter.length !== 0) {
+                state.displayedFilters.push(`Кол-во пересадок: ${connectionsFilter.join(', ')}`);
+            } else {
+                state.displayedFilters.push("любое кол-во пересадок");
+            }
+        
+            // Add company filter info or default if empty
+            if (companyFilter.length !== 0) {
+                state.displayedFilters.push(`Авиакомпания: ${companyFilter.join(', ')}`);
+            } else {
+                state.displayedFilters.push("Любая авиакомпания");
+            }
         },
-        sortTicketByDuration(state) {
-            const sortedByDuration = sortByDuration(state.filteredTickets);
-            state.filteredTickets = sortedByDuration;
-        },
+        // sortByPrice(state) {
+        //     const sortedByPrice = state.filteredTickets.sort((a, b) => a.price - b.price);
+        //     state.filteredTickets = sortedByPrice;
+        // },
+        // sortTicketByDuration(state) {
+        //     const sortedByDuration = sortByDuration(state.filteredTickets);
+        //     state.filteredTickets = sortedByDuration;
+        // },
         filterTickets(state, action) {
-            const {connectionsFilter, companyFilter} = action.payload;
+            const { connectionsFilter, companyFilter } = action.payload;
             if (connectionsFilter.length === 0 && companyFilter.length === 0) {
                 state.filteredTickets = state.tickets;
                 return;
             }
-            const filteredTickets = state.tickets.filter(function(ticket) {
+            const filteredTickets = state.tickets.filter(function (ticket) {
                 if (connectionsFilter.length !== 0) {
                     if (!connectionsFilter.includes(ticket.connectionAmount))
                         return false;
@@ -79,15 +101,15 @@ const ticketsSlice = createSlice({
         // filterByTransfer(state, action) {
         //     const {filters} = action.payload;
         //     console.log(action.payload)
-            // if (filters.length === 0) {
-            //     state.filteredTickets = state.tickets;
-            //     return;
-            // }
-            // const filteredTickets = state.tickets.filter(ticket =>
-            //     filters.includes(ticket.connectionAmount)
-            // );
-            // console.log(filteredTickets);
-            // state.filteredTickets = filteredTickets;
+        // if (filters.length === 0) {
+        //     state.filteredTickets = state.tickets;
+        //     return;
+        // }
+        // const filteredTickets = state.tickets.filter(ticket =>
+        //     filters.includes(ticket.connectionAmount)
+        // );
+        // console.log(filteredTickets);
+        // state.filteredTickets = filteredTickets;
         // }
         // sortTicketsByDuration(state) {
         //     const ticketsArray = Object.values(state.entities);
@@ -111,7 +133,7 @@ const ticketsSlice = createSlice({
 });
 
 
-export const {sortByPrice, sortTicketByDuration, filterTickets, sortTickets, setSortingType} = ticketsSlice.actions;
+export const { sortByPrice, sortTicketByDuration, filterTickets, sortTickets, setSortingType, setDisplayedFilters } = ticketsSlice.actions;
 // export const {sortTicketsByDuration, sortByConnections} = ticketsSlice.actions;
 
 export default ticketsSlice.reducer;
