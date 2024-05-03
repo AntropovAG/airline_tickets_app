@@ -9,7 +9,7 @@ import { useState, useEffect } from 'react'
 
 export default function Layout() {
     const filteredTickets = useAppSelector((state) => state.tickets.filteredTickets);
-    const [displayCount, setDisplayCount] = useState(3);
+    const [displayCount, setDisplayCount] = useState<number>(3);
     const isWideScreen = () => window.innerWidth > 1080;
     const [openFilters, setOpenFilters] = useState(isWideScreen);
     const displayedTickets = filteredTickets.slice(0, displayCount);

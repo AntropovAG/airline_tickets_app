@@ -57,16 +57,22 @@ const ticketsSlice = createSlice({
             state.currentSorting = action.payload;
         },
         sortTickets(state) {
-            if (state.currentSorting === "price") {
-                state.filteredTickets.sort((a, b) => a.price - b.price);
-            } else if (state.currentSorting === "duration") {
-                state.filteredTickets = sortByDuration(state.filteredTickets);
-            } else if (state.currentSorting === "optimal") {
-                state.filteredTickets.sort((a, b) => {
-                    if (a.connectionAmount !== b.connectionAmount)
-                        return a.connectionAmount - b.connectionAmount;
-                    return a.price - b.price;
-                });
+            switch (state.currentSorting) {
+                case "price":
+                    state.filteredTickets.sort((a, b) => a.price - b.price);
+                    break;
+                case "duration":
+                    state.filteredTickets = sortByDuration(state.filteredTickets);
+                    break;
+                case "optimal":
+                    state.filteredTickets.sort((a, b) => {
+                        if (a.connectionAmount !== b.connectionAmount)
+                            return a.connectionAmount - b.connectionAmount;
+                        return a.price - b.price;
+                    });
+                    break;
+                default:
+                    console.log('No sorting applied. Invalid sorting option:', state.currentSorting);
             }
         },
         setDisplayedFilters(
